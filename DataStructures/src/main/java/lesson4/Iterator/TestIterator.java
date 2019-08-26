@@ -1,0 +1,73 @@
+package lesson4.Iterator;
+
+import lesson4.LinkedList.LinkedList;
+import lesson4.LinkedList.SimpleLinkedList;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestIterator {
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3};
+//        for (int i = 0; i < array.length; i++) {
+//            int value = array[i];
+//            doAction(value);
+//        }
+
+        int index = 0;
+        while (index < array.length) {
+            int value = array[index];
+            doAction(value);
+            index++;
+        }
+
+//        Iterator<Integer> iterator = null;
+//        while (iterator.hasNext()) {
+//            Integer value = iterator.next();
+//            doAction(value);
+//        }
+
+        System.out.println("----");
+        System.out.println("Проверка итератора связанного списка");
+
+        LinkedList<Integer> linkedList = new SimpleLinkedList<>();
+        linkedList.insertFirst(1);
+        linkedList.insertFirst(2);
+        linkedList.insertFirst(3);
+
+        for (int value : linkedList) {
+            doAction(value);
+        }
+
+//        while (!linkedList.isEmpty()) {
+//            Integer value = linkedList.removeFirst();
+//            doAction(value);
+//        }
+        System.out.println("----");
+        List<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(3);
+
+        for (Integer value : arrayList) {
+            doAction(value);
+        }
+
+        System.out.println("----");
+        List<Integer> jdkLinkedList = new java.util.LinkedList<>();
+        jdkLinkedList.add(1);
+        jdkLinkedList.add(2);
+        jdkLinkedList.add(3);
+
+        for (Integer value : jdkLinkedList) {
+            doAction(value);
+        }
+
+
+    }
+
+    private static void doAction(int value) {
+        System.out.println(value);
+    }
+}
